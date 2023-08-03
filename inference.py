@@ -137,7 +137,7 @@ for i in range(num_sample_frames//each_sample_frame):
     out1 = out1.images[0][1:]    # drop the first frame
     out.extend(out1)
 
-imageio.mimsave('demo.gif', out, fps=8)
+imageio.mimsave('demo.mp4', out, fps=15)
 # import IPython
 # from IPython.display import Image
 # Image(filename='demo.gif')
