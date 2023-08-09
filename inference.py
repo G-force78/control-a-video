@@ -137,7 +137,31 @@ for i in range(num_sample_frames//each_sample_frame):
     out1 = out1.images[0][1:]    # drop the first frame
     out.extend(out1)
 
-imageio.mimsave('demo.mp4', out, fps=15)
+import os
+import imageio
+
+filename = 'demo.mp4'
+counter = 1
+
+while os.path.exists(filename):
+    new_filename = f'demo_{counter}.mp4'
+    counter += 1
+    filename = new_filename
+
+imageio.mimsave(filename, out, fps=8)
+
+
+#import datetime
+
+# ...
+
+# Generate a new filename with the current date and time
+#current_datetime = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+#new_filename = f"demo_{current_datetime}.mp4"
+
+# Save the output frames as a new video file with the new filename
+#imageio.mimsave(new_filename, out, fps=8)
+imageio.mimsave('demo.mp4', out, fps=8)
 # import IPython
 # from IPython.display import Image
 # Image(filename='demo.gif')
