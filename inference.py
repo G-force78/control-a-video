@@ -75,7 +75,7 @@ elif control_mode == 'canny':
     annotator_model = None
 elif control_mode == 'hed':
     # firstly download from https://huggingface.co/wf-genius/controlavideo-hed/resolve/main/hed-network.pth 
-    annotator_model = HEDNetwork('hed-network.pth').to("cuda")
+    annotator_model = HEDNetwork('/content/control-a-video/model/annotator/hed-network.pth').to("cuda")
 
 video_controlnet_pipe = Controlnet3DStableDiffusionPipeline.from_pretrained(control_net_path, unet=unet, 
                         controlnet=controlnet, annotator_model=annotator_model,
